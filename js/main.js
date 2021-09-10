@@ -10,7 +10,6 @@ function Hero(game, x, y) {
     // call Phaser.Sprite constructor
     Phaser.Sprite.call(this, game, x, y, 'hero');
     // adjust sprite height and width
-    this.scale = 0.25;
     
     // physics properties
     this.game.physics.enable(this);
@@ -33,6 +32,7 @@ Hero.prototype.move = function (direction) {
     // guard
     if (this.isFrozen) { return; }
 
+    this.scale = 0.25;
     const SPEED = 200;
     let hero_direction;
     this.body.velocity.x = direction * SPEED;

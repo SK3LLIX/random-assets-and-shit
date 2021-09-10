@@ -12,8 +12,6 @@ function Hero(game, x, y) {
     // physics properties
     this.game.physics.enable(this);
     this.body.collideWorldBounds = true;
-    Hero.scale.x = 0.5;
-    Hero.scale.y = 0.5;
 
     // animations
     this.animations.add('error', [0], 8, true);

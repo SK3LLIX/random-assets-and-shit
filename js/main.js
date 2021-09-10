@@ -10,8 +10,7 @@ function Hero(game, x, y) {
     // call Phaser.Sprite constructor
     Phaser.Sprite.call(this, game, x, y, 'hero');
     // adjust sprite height and width
-    this.height = 35;
-    this.width = 35;
+    this.scale = 0.25;
     
     // physics properties
     this.game.physics.enable(this);
@@ -35,14 +34,15 @@ Hero.prototype.move = function (direction) {
     if (this.isFrozen) { return; }
 
     const SPEED = 200;
+    let hero_direction;
     this.body.velocity.x = direction * SPEED;
 
     // update image flipping & animations
     if (this.body.velocity.x < 0) {
-        this.scale.x = -1;
+        hero_direction = 'left';
     }
     else if (this.body.velocity.x > 0) {
-        this.scale.x = 1;
+        hero_direction = 'left';
     }
 };
 
@@ -100,7 +100,7 @@ Hero.prototype._getAnimationName = function () {
     }
     // frozen & not dying
     else if (this.isFrozen) {
-        name = 'stop';
+        name = 'error';
     }
     // jumping
     else if (this.body.velocity.y < 0) {

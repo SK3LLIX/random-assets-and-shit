@@ -12,7 +12,7 @@ function Hero(game, x, y) {
     // physics properties
     this.game.physics.enable(this);
     this.body.collideWorldBounds = true;
-    this.body.offset.y = -30;
+    this.body.setOffset(0,30);
 
     // animations
     this.animations.add('error', [0], 8, true);

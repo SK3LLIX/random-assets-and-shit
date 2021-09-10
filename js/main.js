@@ -32,6 +32,7 @@ Hero.prototype.move = function (direction) {
     // guard
     if (this.isFrozen) { return; }
     const SPEED = 200;
+    this.scale = 1;
     this.body.velocity.x = direction * SPEED;
 
     // update image flipping & animations
@@ -91,7 +92,7 @@ Hero.prototype._getAnimationName = function () {
     }
     // frozen & not dying
     else if (this.isFrozen) {
-        name = 'error';
+        name = 'stop';
     }
     // jumping
     else if (this.body.velocity.y < 0) {

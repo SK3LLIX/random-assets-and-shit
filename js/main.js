@@ -9,7 +9,10 @@
 function Hero(game, x, y) {
     // call Phaser.Sprite constructor
     Phaser.Sprite.call(this, game, x, y, 'hero');
-
+    // adjust sprite height and width
+    this.height = 35;
+    this.width = 35;
+    
     // physics properties
     this.game.physics.enable(this);
     this.body.collideWorldBounds = true;

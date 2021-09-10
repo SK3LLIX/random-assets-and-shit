@@ -31,8 +31,6 @@ Hero.prototype.constructor = Hero;
 Hero.prototype.move = function (direction) {
     // guard
     if (this.isFrozen) { return; }
-
-    this.scale = 0.25;
     const SPEED = 200;
     let hero_direction;
     this.body.velocity.x = direction * SPEED;

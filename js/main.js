@@ -172,35 +172,35 @@ LoadingState.init = function () {
 };
 
 LoadingState.preload = function () {
-    this.game.load.json('level:0', 'data/level00.json');
-    this.game.load.json('level:1', 'data/level01.json');
+    this.game.load.json('level:0', 'https://github.com/SK3LLIX/untitledgame/data/level00.json');
+    this.game.load.json('level:1', 'https://github.com/SK3LLIX/untitledgame/data/level01.json');
 
-    this.game.load.image('font:numbers', 'images/numbers.png');
+    this.game.load.image('font:numbers', 'https://github.com/SK3LLIX/untitledgame/images/numbers.png');
 
-    this.game.load.image('icon:coin', 'images/coin_icon.png');
-    this.game.load.image('background', 'images/background.png');
-    this.game.load.image('invisible-wall', 'images/invisible_wall.png');
-    this.game.load.image('ground', 'images/ground.png');
-    this.game.load.image('grass:8x1', 'images/grass_8x1.png');
-    this.game.load.image('grass:6x1', 'images/grass_6x1.png');
-    this.game.load.image('grass:4x1', 'images/grass_4x1.png');
-    this.game.load.image('grass:2x1', 'images/grass_2x1.png');
-    this.game.load.image('grass:1x1', 'images/grass_1x1.png');
-    this.game.load.image('key', 'images/key.png');
+    this.game.load.image('icon:coin', 'https://github.com/SK3LLIX/untitledgame/images/coin_icon.png');
+    this.game.load.image('background', 'https://github.com/SK3LLIX/untitledgame/images/background.png');
+    this.game.load.image('invisible-wall', 'https://github.com/SK3LLIX/untitledgame/images/invisible_wall.png');
+    this.game.load.image('ground', 'https://github.com/SK3LLIX/untitledgame/images/ground.png');
+    this.game.load.image('grass:8x1', 'https://github.com/SK3LLIX/untitledgame/images/grass_8x1.png');
+    this.game.load.image('grass:6x1', 'https://github.com/SK3LLIX/untitledgame/images/grass_6x1.png');
+    this.game.load.image('grass:4x1', 'https://github.com/SK3LLIX/untitledgame/https://github.com/SK3LLIX/untitledgame/images/grass_4x1.png');
+    this.game.load.image('grass:2x1', 'https://github.com/SK3LLIX/untitledgame/images/grass_2x1.png');
+    this.game.load.image('grass:1x1', 'https://github.com/SK3LLIX/untitledgame/images/grass_1x1.png');
+    this.game.load.image('key', 'https://github.com/SK3LLIX/untitledgame/images/key.png');
 
-    this.game.load.spritesheet('decoration', 'images/decor.png', 42, 42);
-    this.game.load.spritesheet('hero', 'images/aleck-sheet.png', 36, 42);
-    this.game.load.spritesheet('coin', 'images/coin_animated.png', 22, 22);
-    this.game.load.spritesheet('spider', 'images/spider.png', 42, 32);
-    this.game.load.spritesheet('door', 'images/door.png', 42, 66);
-    this.game.load.spritesheet('icon:key', 'images/key_icon.png', 34, 30);
+    this.game.load.spritesheet('decoration', 'https://github.com/SK3LLIX/untitledgame/images/decor.png', 42, 42);
+    this.game.load.spritesheet('hero', 'https://github.com/SK3LLIX/untitledgame/images/aleck-sheet.png', 36, 42);
+    this.game.load.spritesheet('coin', 'https://github.com/SK3LLIX/untitledgame/images/coin_animated.png', 22, 22);
+    this.game.load.spritesheet('spider', 'https://github.com/SK3LLIX/untitledgame/images/spider.png', 42, 32);
+    this.game.load.spritesheet('door', 'https://github.com/SK3LLIX/untitledgame/images/door.png', 42, 66);
+    this.game.load.spritesheet('icon:key', 'https://github.com/SK3LLIX/untitledgame/images/key_icon.png', 34, 30);
 
-    this.game.load.audio('sfx:jump', 'audio/jump.wav');
-    this.game.load.audio('sfx:coin', 'audio/coin.wav');
-    this.game.load.audio('sfx:key', 'audio/key.wav');
-    this.game.load.audio('sfx:stomp', 'audio/stomp.wav');
-    this.game.load.audio('sfx:door', 'audio/door.wav');
-    this.game.load.audio('bgm', ['audio/bgm.mp3', 'audio/bgm.ogg']);
+    this.game.load.audio('sfx:jump', 'https://github.com/SK3LLIX/untitledgame/audio/jump.wav');
+    this.game.load.audio('sfx:coin', 'https://github.com/SK3LLIX/untitledgame/audio/coin.wav');
+    this.game.load.audio('sfx:key', 'https://github.com/SK3LLIX/untitledgame/audio/key.wav');
+    this.game.load.audio('sfx:stomp', 'https://github.com/SK3LLIX/untitledgame/audio/stomp.wav');
+    this.game.load.audio('sfx:door', 'https://github.com/SK3LLIX/untitledgame/audio/door.wav');
+    this.game.load.audio('bgm', ['https://github.com/SK3LLIX/untitledgame/audio/bgm.mp3', 'https://github.com/SK3LLIX/untitledgame/audio/bgm.ogg']);
 };
 
 LoadingState.create = function () {

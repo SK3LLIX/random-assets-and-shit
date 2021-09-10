@@ -16,13 +16,13 @@ function Hero(game, x, y) {
     this.game.physics.enable(this);
     this.body.collideWorldBounds = true;
     // animations
-    this.animations.add('stop', [0]);
+    this.animations.add('error', [0]);
     this.animations.add('run', [1, 2], 8, true); // 8fps looped
     this.animations.add('jump', [3]);
     this.animations.add('fall', [4]);
     this.animations.add('die', [5, 6, 5, 6, 5, 6, 5, 6], 12); // 12fps no loop
     // starting animation
-    this.animations.play('stop');
+    this.animations.play('error');
 }
 
 // inherit from Phaser.Sprite

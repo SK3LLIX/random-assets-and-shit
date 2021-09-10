@@ -160,6 +160,7 @@ LoadingState = {};
 LoadingState.init = function () {
     // keep crispy-looking pixels
     this.game.renderer.renderSession.roundPixels = true;
+    game.debug.body('hero');
 };
 
 LoadingState.preload = function () {
@@ -481,7 +482,7 @@ PlayState._createHud = function () {
 // =============================================================================
 
 window.onload = function () {
-    let game = new Phaser.Game(960, 600, Phaser.AUTO, 'game');
+    let game = new Phaser.Game(960, 600, Phaser.CANVAS, 'game');
     game.state.add('play', PlayState);
     game.state.add('loading', LoadingState);
     game.state.start('loading');

@@ -160,7 +160,7 @@ LoadingState = {};
 LoadingState.init = function () {
     // keep crispy-looking pixels
     this.game.renderer.renderSession.roundPixels = true;
-    game.debug.body('hero');
+    this.game.debug.body('hero');
 };
 
 LoadingState.preload = function () {

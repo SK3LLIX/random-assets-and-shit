@@ -160,7 +160,6 @@ LoadingState = {};
 LoadingState.init = function () {
     // keep crispy-looking pixels
     this.game.renderer.renderSession.roundPixels = true;
-    this.game.debug.body('hero');
 };
 
 LoadingState.preload = function () {
@@ -249,7 +248,6 @@ PlayState.update = function () {
     // update scoreboards
     this.coinFont.text = `x${this.coinPickupCount}`;
     this.keyIcon.frame = this.hasKey ? 1 : 0;
-    this.game.debug.body('hero');
 };
 
 PlayState.shutdown = function () {

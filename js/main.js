@@ -90,7 +90,7 @@ Hero.prototype._getAnimationName = function () {
     }
     // frozen & not dying
     else if (this.isFrozen) {
-        name = 'stop';
+        name = 'error';
     }
     // jumping
     else if (this.body.velocity.y < 0) {
@@ -180,7 +180,7 @@ LoadingState.preload = function () {
     this.game.load.image('key', 'https://sk3llix.github.io/untitledgame/images/key.png');
 
     this.game.load.spritesheet('decoration', 'https://sk3llix.github.io/untitledgame/images/decor.png', 42, 42);
-    this.game.load.spritesheet('hero', 'https://sk3llix.github.io/untitledgame/images/aleck-sheet-compressed.png', 31, 31);
+    this.game.load.spritesheet('hero', 'https://sk3llix.github.io/untitledgame/images/aleck-sheet-compressed.png', 83, 83);
     this.game.load.spritesheet('coin', 'https://sk3llix.github.io/untitledgame/images/coin_animated.png', 22, 22);
     this.game.load.spritesheet('spider', 'https://sk3llix.github.io/untitledgame/images/spider.png', 42, 32);
     this.game.load.spritesheet('door', 'https://sk3llix.github.io/untitledgame/images/door.png', 42, 66);

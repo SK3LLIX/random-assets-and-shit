@@ -9,8 +9,7 @@
 function Hero(game, x, y) {
     // call Phaser.Sprite constructor
     Phaser.Sprite.call(this, game, x, y, 'hero');
-    // adjust sprite height and width
-    
+
     // physics properties
     this.game.physics.enable(this);
     this.body.collideWorldBounds = true;
@@ -31,11 +30,17 @@ Hero.prototype.constructor = Hero;
 Hero.prototype.move = function (direction) {
     // guard
     if (this.isFrozen) { return; }
+
     const SPEED = 200;
-    this.scale = 1;
     this.body.velocity.x = direction * SPEED;
 
     // update image flipping & animations
+    if (this.body.velocity.x < 0) {
+        this.scale.x = 10%;
+    }
+    else if (this.body.velocity.x > 0) {
+        this.scale.x = 10%;
+    }
 };
 
 Hero.prototype.jump = function () {

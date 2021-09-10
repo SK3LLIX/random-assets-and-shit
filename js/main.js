@@ -249,6 +249,9 @@ PlayState.update = function () {
     // update scoreboards
     this.coinFont.text = `x${this.coinPickupCount}`;
     this.keyIcon.frame = this.hasKey ? 1 : 0;
+    
+        this.game.debug.body(this.captain, "#9090ff", false);
+        this.enemy.forEachAlive(game.debug.body,game.debug,"#ff9090",false);
 };
 
 PlayState.shutdown = function () {

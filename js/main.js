@@ -10,13 +10,11 @@ function Hero(game, x, y) {
     // call Phaser.Sprite constructor
     Phaser.Sprite.call(this, game, x, y, 'hero');
 
-    // anchor
-    this.anchor.set(0.5, 0.5);
     // physics properties
     this.game.physics.enable(this);
     this.body.collideWorldBounds = true;
     // animations
-    this.animations.add('error', [0]);
+    this.animations.add('error', [0], 8, true);
     this.animations.add('run', [1, 2], 8, true); // 8fps looped
     this.animations.add('jump', [3]);
     this.animations.add('fall', [4]);

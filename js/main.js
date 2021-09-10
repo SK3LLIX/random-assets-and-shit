@@ -9,6 +9,9 @@
 function Hero(game, x, y) {
     // call Phaser.Sprite constructor
     Phaser.Sprite.call(this, game, x, y, 'hero');
+    
+        this.scale.x = 0.5;
+        this.scale.y = 0.5;
 
     // physics properties
     this.game.physics.enable(this);
@@ -35,14 +38,6 @@ Hero.prototype.move = function (direction) {
     this.body.velocity.x = direction * SPEED;
 
     // update image flipping & animations
-    if (this.body.velocity.x < 0) {
-        this.scale.x = 0.5;
-        this.scale.y = 0.5;
-    }
-    else if (this.body.velocity.x > 0) {
-        this.scale.x = 0.5;
-        this.scale.y = 0.5;
-    }
 };
 
 Hero.prototype.jump = function () {

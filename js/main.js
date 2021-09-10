@@ -26,13 +26,16 @@ function Hero(game, x, y) {
 // inherit from Phaser.Sprite
 Hero.prototype = Object.create(Phaser.Sprite.prototype);
 Hero.prototype.constructor = Hero;
+Hero.scale.x = 0.5;
+Hero.scale.y = 0.5;
 Hero.prototype.move = function (direction) {
     // guard
     if (this.isFrozen) { return; }
 
     const SPEED = 200;
     this.body.velocity.x = direction * SPEED;
-
+    Hero.scale.x = 0.5;
+    Hero.scale.y = 0.5;
     // update image flipping & animations
 };
 

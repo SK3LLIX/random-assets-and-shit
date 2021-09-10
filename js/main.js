@@ -9,13 +9,12 @@
 function Hero(game, x, y) {
     // call Phaser.Sprite constructor
     Phaser.Sprite.call(this, game, x, y, 'hero');
-    
-        this.scale.x = 0.5;
-        this.scale.y = 0.5;
-
     // physics properties
     this.game.physics.enable(this);
     this.body.collideWorldBounds = true;
+    Hero.scale.x = 0.5;
+    Hero.scale.y = 0.5;
+
     // animations
     this.animations.add('error', [0], 8, true);
     this.animations.add('run', [1, 2], 8, true); // 8fps looped
@@ -29,7 +28,8 @@ function Hero(game, x, y) {
 // inherit from Phaser.Sprite
 Hero.prototype = Object.create(Phaser.Sprite.prototype);
 Hero.prototype.constructor = Hero;
-
+Hero.scale.x = 0.5;
+Hero.scale.y = 0.5;
 Hero.prototype.move = function (direction) {
     // guard
     if (this.isFrozen) { return; }

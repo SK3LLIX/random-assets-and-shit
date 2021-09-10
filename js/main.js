@@ -36,10 +36,12 @@ Hero.prototype.move = function (direction) {
 
     // update image flipping & animations
     if (this.body.velocity.x < 0) {
-        this.scale.x = 1;
+        this.scale.x = 0.5;
+        this.scale.y = 0.5;
     }
     else if (this.body.velocity.x > 0) {
-        this.scale.x = 1;
+        this.scale.x = 0.5;
+        this.scale.y = 0.5;
     }
 };
 

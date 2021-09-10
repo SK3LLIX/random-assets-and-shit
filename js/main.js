@@ -26,6 +26,7 @@ function Hero(game, x, y) {
 // inherit from Phaser.Sprite
 Hero.prototype = Object.create(Phaser.Sprite.prototype);
 Hero.prototype.constructor = Hero;
+Hero.body.offset.y = -15;
 Hero.prototype.move = function (direction) {
     // guard
     if (this.isFrozen) { return; }

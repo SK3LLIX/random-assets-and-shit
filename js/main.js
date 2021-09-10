@@ -32,16 +32,9 @@ Hero.prototype.move = function (direction) {
     // guard
     if (this.isFrozen) { return; }
     const SPEED = 200;
-    let hero_direction;
     this.body.velocity.x = direction * SPEED;
 
     // update image flipping & animations
-    if (this.body.velocity.x < 0) {
-        hero_direction = 'left';
-    }
-    else if (this.body.velocity.x > 0) {
-        hero_direction = 'left';
-    }
 };
 
 Hero.prototype.jump = function () {

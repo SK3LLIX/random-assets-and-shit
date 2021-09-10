@@ -12,6 +12,7 @@ function Hero(game, x, y) {
     // physics properties
     this.game.physics.enable(this);
     this.body.collideWorldBounds = true;
+    this.body.offset.y = -30;
 
     // animations
     this.animations.add('error', [0], 8, true);
@@ -26,7 +27,6 @@ function Hero(game, x, y) {
 // inherit from Phaser.Sprite
 Hero.prototype = Object.create(Phaser.Sprite.prototype);
 Hero.prototype.constructor = Hero;
-Hero.body.offset.y = -15;
 Hero.prototype.move = function (direction) {
     // guard
     if (this.isFrozen) { return; }

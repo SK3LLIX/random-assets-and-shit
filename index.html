@@ -264,6 +264,86 @@ function update ()
         
         player_anim_end = false;
     }
+    else if(player_direction === 'left' && cursors.up.isDown && player.body.touching.down && player_anim === 'walk')
+    {
+        player.setVelocityY(-330);
+        
+        player.anims.play('jump-left');
+        
+        player_anim = 'jump';
+        
+        player_direction = 'left';
+        
+        player_anim_end = false;
+    }
+    else if(player_direction === 'right' && cursors.up.isDown && player.body.touching.down && player_anim === 'walk')
+    {
+        player.setVelocityY(-330);
+
+        player.anims.play('jump-right');
+
+        player_anim = 'jump';
+        
+        player_direction = 'right';
+        
+        player_anim_end = false;
+    }
+    else if(player_direction === 'left' && cursors.up.isDown && player.body.touching.down && player_anim === 'walk' && cursors.left.isDown)
+    {
+        player.setVelocityY(-330);
+        
+        player.setVelocityX(-160);
+        
+        player.anims.play('jump-left');
+        
+        player_anim = 'jump';
+        
+        player_direction = 'left';
+        
+        player_anim_end = false;
+    }
+    else if(player_direction === 'right' && cursors.up.isDown && player.body.touching.down && player_anim === 'walk' && cursors.right.isDown)
+    {
+        player.setVelocityY(-330);
+        
+        player.setVelocityX(160);
+
+        player.anims.play('jump-right');
+
+        player_anim = 'jump';
+        
+        player_direction = 'right';
+        
+        player_anim_end = false;
+    }
+    else if(player_direction === 'right' && cursors.up.isDown && player.body.touching.down && player_anim === 'walk' && cursors.left.isDown)
+    {
+        player.setVelocityY(-330);
+        
+        player.setVelocityX(-160);
+        
+        player.anims.play('jump-left');
+        
+        player_anim = 'jump';
+        
+        player_direction = 'left';
+        
+        player_anim_end = false;
+    }
+    else if(player_direction === 'left' && cursors.up.isDown && player.body.touching.down && player_anim === 'walk' && cursors.right.isDown)
+    {
+        player.setVelocityY(-330);
+        
+        player.setVelocityX(160);
+
+        player.anims.play('jump-right');
+
+        player_anim = 'jump';
+        
+        player_direction = 'right';
+        
+        player_anim_end = false;
+    }
     else if(player_direction === 'left'  && player_anim != 'air-left' && !player.body.touching.down && player_anim_end === true)
     {
         player.anims.play('air-left');

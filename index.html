@@ -260,8 +260,6 @@ function create ()
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
-var bKeyObj = scene.input.keyboard.addKey('B');  // Get key object
-
 player_animation_finished = () => {
     player_anim_end = true;
 }
@@ -275,15 +273,6 @@ function update()
     playercontroller();
 
 }
-bKeyObj.on('down', function(event) { 
-    config.physics.arcade.debug = true;
-    player_anim_text.visible = true;
-});
-bKeyObj.on('up', function(event) { 
-    config.physics.arcade.debug = false;
-    player_anim_text.visible = false;
-});
-
 function collectStar (player, star)
 {
     star.disableBody(true, true);

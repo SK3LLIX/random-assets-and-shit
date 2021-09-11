@@ -188,7 +188,7 @@ function update ()
     }
     player.on('animationcomplete', player_animation_finished);
     
-    if (cursors.left.isDown)
+    if (cursors.left.isDown && player.body.touching.down)
     {
         player.setVelocityX(-160);
 
@@ -198,7 +198,7 @@ function update ()
         
         player_anim = 'walk';
     }
-    else if (cursors.right.isDown)
+    else if (cursors.right.isDown && player.body.touching.down)
     {
         player.setVelocityX(160);
 
@@ -208,7 +208,7 @@ function update ()
         
         player_anim = 'walk';
     }
-    else if(player_direction === 'right' && player_anim != 'idle' && !cursors.right.isDown && !cursors.left.isDown)
+    else if(player_direction === 'right' && player_anim != 'idle' && !cursors.right.isDown && !cursors.left.isDown && player.body.touching.down)
     {
         player.setVelocityX(0);
 
@@ -216,7 +216,7 @@ function update ()
 
         player_anim = 'idle';
     }
-    else if(player_direction === 'left' && player_anim != 'idle' && !cursors.right.isDown && !cursors.left.isDown)
+    else if(player_direction === 'left' && player_anim != 'idle' && !cursors.right.isDown && !cursors.left.isDown && player.body.touching.down)
     {
         player.setVelocityX(0);
 

@@ -211,20 +211,12 @@ function update ()
     else if (cursors.left.isDown)
     {
         player.setVelocityX(-160);
-        
-        player_direction = 'left';
 
     }
     else if (cursors.right.isDown)
     {
         player.setVelocityX(160);
-        
-        player_direction = 'right';
 
-    }
-    else if (!cursors.right.isDown && !cursors.left.isDown)
-    {
-        player.setVelocityX(0);
     }
     else if(player_direction === 'right' && player_anim != 'idle' && !cursors.right.isDown && !cursors.left.isDown && player.body.touching.down)
     {
@@ -275,17 +267,17 @@ function update ()
 
         player_anim = 'jump';
     }
-    else if(player_direction === 'left'  && !player_anim === 'air-left' && !player.body.touching.down)
+    else if(player_direction === 'left'  && !player_anim === 'air' && !player.body.touching.down)
     {
         player.anims.play('air-left');
         
-        player_anim = 'air-left';
+        player_anim = 'air';
     }
-    else if(player_direction === 'right'  && !player_anim === 'air-right' && !player.body.touching.down)
+    else if(player_direction === 'right'  && !player_anim === 'air' && !player.body.touching.down)
     {
         player.anims.play('air-right');
 
-        player_anim = 'air-right';
+        player_anim = 'air';
     }
 }
 

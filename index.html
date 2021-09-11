@@ -261,7 +261,7 @@ function create ()
     this.physics.add.collider(player, bombs, hitBomb, null, this);
     
     this.input.keyboard.on('keydown-B', function () {
-        config.physics.arcade.debug = true
+        score += 10;
     });
 }
 player_animation_finished = () => {

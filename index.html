@@ -42,6 +42,7 @@ var gameOver = false;
 var scoreText;
 var player_direction = 'right';
 var player_anim;
+var player_anim_end = null;
 
 var game = new Phaser.Game(config);
 
@@ -116,6 +117,31 @@ function create ()
         repeat: -1
     });
 
+    this.anims.create({
+        key: 'jump-right',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 25, end: 27 }),
+        frameRate: 10,
+    });
+    
+    this.anims.create({
+        key: 'jump-left',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 28, end: 30 }),
+        frameRate: 10,
+    });
+
+    this.anims.create({
+        key: 'air-right',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 31, end: 33 }),
+        frameRate: 10,
+        repeat: -1
+    });
+    
+    this.anims.create({
+        key: 'air-left',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 34, end: 36 }),
+        frameRate: 10,
+        repeat: -1
+    });
     //  Input Events
     cursors = this.input.keyboard.createCursorKeys();
 
@@ -149,13 +175,19 @@ function create ()
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
 
+player_animation_finished = () => {
+    player_anim_end = true;
+}
+
+
 function update ()
 {
     if (gameOver)
     {
         return;
     }
-
+    player.on('animationcomplete', player_animation_finished);
+    
     if (cursors.left.isDown)
     {
         player.setVelocityX(-160);
@@ -176,44 +208,45 @@ function update ()
         
         player_anim = 'walk';
     }
-    else
+    else if(player_direction === 'right' && player_anim != 'idle' && !cursors.right.isDown && !cursors.left.isDown)
     {
-        
-        if(player_direction === 'right' && player_anim != 'idle')
-        {
-            player.setVelocityX(0);
+        player.setVelocityX(0);
 
-            player.anims.play('idle-right');
-        
-            player_anim = 'idle';
-        }
-        else
-        {
-            
-            if(player_direction === 'left' && player_anim != 'idle')
-            {
-                player.setVelocityX(0);
+        player.anims.play('idle-right');
 
-                player.anims.play('idle-left');
-
-                player_anim = 'idle';
-            }
-            else
-            {
-                
-                if(player_direction != 'left' && player_direction != 'right')
-                {
-                
-                    player.anims.play('error');
-                
-                }
-            }
-        }
+        player_anim = 'idle';
     }
+    else if(player_direction === 'left' && player_anim != 'idle' && !cursors.right.isDown && !cursors.left.isDown)
+    {
+        player.setVelocityX(0);
 
-    if (cursors.up.isDown && player.body.touching.down)
+        player.anims.play('idle-left');
+
+        player_anim = 'idle';
+    }
+    else if(player_direction != 'left' && player_direction != 'right')
+    {
+        player.anims.play('error');
+        
+    }
+    else if(player_direction === 'left' cursors.up.isDown && player.body.touching.down && player_anim != 'jump')
     {
         player.setVelocityY(-330);
+        
+        player.anims.play('jump-left');
+        
+        player_anim = 'jump';
+    }
+    else 
+    {    
+        if(player_direction === 'right' cursors.up.isDown && player.body.touching.down && player_anim != 'jump')
+        {
+            player.setVelocityY(-330);
+
+            player.anims.play('jump-right');
+
+            player_anim = 'jump';
+        }
     }
 }
 

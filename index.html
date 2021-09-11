@@ -273,7 +273,9 @@ function update()
         return;
     }
     playercontroller();
-    bKeyObj.on('down', function(event) { 
+
+}
+bKeyObj.on('down', function(event) { 
     config.physics.arcade.debug = true;
     player_anim_text.visible = true;
 });
@@ -281,8 +283,6 @@ bKeyObj.on('up', function(event) {
     config.physics.arcade.debug = false;
     player_anim_text.visible = false;
 });
-}
-
 
 function collectStar (player, star)
 {

@@ -675,4 +675,44 @@ function playercontroller ()
         
         player.body.offset.x = 25;
     }
+    else if (player_direction === 'right' && !player.body.touching.down && cursors.down.isDown && player_anim === 'stomp' && player_anim_end === true)
+    {   
+        player.setVelocityX(0);
+        
+        player.setVelocityY(330);
+        
+        player.anims.play('stomp-loop-right');
+
+        player_anim = 'stomp-loop';
+        
+        player_direction = 'right';
+        
+        player_anim_end = false;
+        
+        player.body.setSize(36, 56)
+        
+        player.body.offset.y = 11;
+        
+        player.body.offset.x = 25;
+    }
+    else if (player_direction === 'left' && !player.body.touching.down && cursors.down.isDown && player_anim === 'stomp' && player_anim_end === true)
+    {   
+        player.setVelocityX(0);
+        
+        player.setVelocityY(330);
+        
+        player.anims.play('stomp-loop-left');
+
+        player_anim = 'stomp-loop';
+        
+        player_direction = 'left';
+        
+        player_anim_end = false;
+        
+        player.body.setSize(36, 56)
+        
+        player.body.offset.y = 11;
+        
+        player.body.offset.x = 25;
+    }
 }

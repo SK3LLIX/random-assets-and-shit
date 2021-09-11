@@ -247,46 +247,6 @@ function update ()
         player.anims.play('error');
         
     }
-    else if(player_direction === 'left' && cursors.up.isDown && player.body.touching.down)
-    {
-        player.setVelocityY(-330);
-        
-        player.anims.play('jump-left');
-        
-        player_anim = 'jump';
-    }
-    else if(player_direction === 'right' && cursors.up.isDown && player.body.touching.down)
-    {
-        player.setVelocityY(-330);
-
-        player.anims.play('jump-right');
-
-        player_anim = 'jump';
-    }
-    else if(player_direction === 'left' && player_anim === 'jump')
-    {
-        player.anims.play('jump-left');
-        
-        player_anim = 'jump';
-    }
-    else if(player_direction === 'right' && player_anim === 'jump')
-    {
-        player.anims.play('jump-right');
-
-        player_anim = 'jump';
-    }
-    else if(player_direction === 'left'  && !player_anim === 'air-left' && !player.body.touching.down)
-    {
-        player.anims.play('air-left');
-        
-        player_anim = 'air-left';
-    }
-    else if(player_direction === 'right'  && !player_anim === 'air-right' && !player.body.touching.down)
-    {
-        player.anims.play('air-right');
-
-        player_anim = 'air-right';
-    }
 }
 
 function collectStar (player, star)

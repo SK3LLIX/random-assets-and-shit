@@ -284,7 +284,7 @@ function update ()
         
         player_anim_end = false;
     }
-    else if(cursors.left.isDown  && !player.body.touching.down && player_anim_end === true)
+    else if(cursors.left.isDown  && !player.body.touching.down)
     {
         player.setVelocityX(-160);
         
@@ -296,7 +296,7 @@ function update ()
         
         player_anim_end = false;
     }
-    else if(cursors.right.isDown  && !player.body.touching.down && player_anim_end === true)
+    else if(cursors.right.isDown  && !player.body.touching.down)
     {
         player.setVelocityX(160);
         
@@ -386,13 +386,19 @@ function update ()
         
         player_anim_end = false;
     }
-    else if(!cursors.left.isDown && !cursors.right.isDown  && player_anim === 'air-right' || player_anim === 'air-left')
+    else if (!cursors.left.isDown && !cursors.right.isDown  && player_anim === 'air-right')
     {
         player.setVelocityX(0);
         
         player_anim_end = false;
     }
-    else if(cursors.left.isDown && player_anim === 'air-right')
+    else if (!cursors.left.isDown && !cursors.right.isDown  && player_anim === 'air-left')
+    {
+        player.setVelocityX(0);
+        
+        player_anim_end = false;
+    }
+    else if (cursors.left.isDown && player_anim === 'air-right')
     {
         player.setVelocityX(-160);
         
@@ -404,7 +410,7 @@ function update ()
         
         player_anim_end = false;
     }
-    else if(cursors.right.isDown && player_anim === 'air-left')
+    else if (cursors.right.isDown && player_anim === 'air-left')
     {
         player.setVelocityX(160);
         
@@ -416,8 +422,7 @@ function update ()
         
         player_anim_end = false;
     }
-    
-    else if(cursors.left.isDown && player_anim === 'air-left')
+    else if (cursors.left.isDown && player_anim === 'air-left')
     {
         player.setVelocityX(-160);
         
@@ -429,7 +434,7 @@ function update ()
         
         player_anim_end = false;
     }
-    else if(cursors.right.isDown && player_anim === 'air-right')
+    else if (cursors.right.isDown && player_anim === 'air-right')
     {
         player.setVelocityX(160);
         

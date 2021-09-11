@@ -711,7 +711,7 @@ function update ()
         
         player.body.offset.x = 25;
     }
-    else if (player_direction === 'right' && cursors.right.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl' || player_anim === 'walk' && player_anim != 'crawl')
+    else if (player_direction === 'right' && cursors.right.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl')
     {   
         player.setVelocityX(160);
         
@@ -729,7 +729,7 @@ function update ()
         
         player.body.offset.x = 25;
     }
-    else if (player_direction === 'right' && cursors.right.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl' || player_anim === 'walk' && player_anim != 'crawl')
+    else if (player_direction === 'right' && cursors.right.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl')
     {   
         player.setVelocityX(160);
         
@@ -747,7 +747,7 @@ function update ()
         
         player.body.offset.x = 25;
     }
-    else if (player_direction === 'left' && cursors.left.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl' || player_anim === 'walk' && player_anim != 'crawl')
+    else if (player_direction === 'left' && cursors.left.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl')
     {   
         player.setVelocityX(-160);
         
@@ -765,7 +765,79 @@ function update ()
         
         player.body.offset.x = 25;
     }
-    else if (player_direction === 'left' && cursors.left.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl' || player_anim === 'walk' && player_anim != 'crawl')
+    else if (player_direction === 'left' && cursors.left.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl')
+    {   
+        player.setVelocityX(-160);
+        
+        player.anims.play('crawl-left');
+
+        player_anim = 'crawl';
+        
+        player_direction = 'left';
+        
+        player_anim_end = false;
+        
+        player.body.setSize(36, 28)
+        
+        player.body.offset.y = 39;
+        
+        player.body.offset.x = 25;
+    }
+    else if (player_direction === 'right' && cursors.right.isDown && cursors.down.isDown && player_anim === 'walk' && player_anim != 'crawl')
+    {   
+        player.setVelocityX(160);
+        
+        player.anims.play('crawl-right');
+
+        player_anim = 'crawl';
+        
+        player_direction = 'right';
+        
+        player_anim_end = false;
+        
+        player.body.setSize(36, 28)
+        
+        player.body.offset.y = 39;
+        
+        player.body.offset.x = 25;
+    }
+    else if (player_direction === 'right' && cursors.right.isDown && cursors.down.isDown && player_anim === 'walk' && player_anim != 'crawl')
+    {   
+        player.setVelocityX(160);
+        
+        player.anims.play('crawl-right');
+
+        player_anim = 'crawl';
+        
+        player_direction = 'right';
+        
+        player_anim_end = false;
+        
+        player.body.setSize(36, 28)
+        
+        player.body.offset.y = 39;
+        
+        player.body.offset.x = 25;
+    }
+    else if (player_direction === 'left' && cursors.left.isDown && cursors.down.isDown && player_anim === 'walk' && player_anim != 'crawl')
+    {   
+        player.setVelocityX(-160);
+        
+        player.anims.play('crawl-left');
+
+        player_anim = 'crawl';
+        
+        player_direction = 'left';
+        
+        player_anim_end = false;
+        
+        player.body.setSize(36, 28)
+        
+        player.body.offset.y = 39;
+        
+        player.body.offset.x = 25;
+    }
+    else if (player_direction === 'left' && cursors.left.isDown && cursors.down.isDown && player_anim === 'walk' && player_anim != 'crawl')
     {   
         player.setVelocityX(-160);
         

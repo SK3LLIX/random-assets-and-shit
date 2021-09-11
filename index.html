@@ -40,6 +40,7 @@ var cursors;
 var score = 0;
 var gameOver = false;
 var scoreText;
+var player_direction = 'right';
 
 var game = new Phaser.Game(config);
 
@@ -49,7 +50,7 @@ function preload ()
     this.load.image('ground', 'https://sk3llix.github.io/untitledgame/assets/platform.png');
     this.load.image('star', 'https://sk3llix.github.io/untitledgame/assets/star.png');
     this.load.image('bomb', 'https://sk3llix.github.io/untitledgame/assets/bomb.png');
-    this.load.spritesheet('dude', 'https://sk3llix.github.io/untitledgame/assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+    this.load.spritesheet('aleck', 'https://sk3llix.github.io/untitledgame/assets/aleck-sheet-compressed.png', { frameWidth: 83, frameHeight: 83 });
 }
 
 function create ()
@@ -70,7 +71,7 @@ function create ()
     platforms.create(750, 220, 'ground');
 
     // The player and its settings
-    player = this.physics.add.sprite(100, 450, 'dude');
+    player = this.physics.add.sprite(100, 450, 'aleck');
 
     //  Player physics properties. Give the little guy a slight bounce.
     player.setBounce(0.2);
@@ -78,21 +79,29 @@ function create ()
 
     //  Our player animations, turning, walking left and walking right.
     this.anims.create({
-        key: 'left',
-        frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+        key: 'idle-right',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 1, end: 4 }),
         frameRate: 10,
         repeat: -1
     });
 
     this.anims.create({
-        key: 'turn',
-        frames: [ { key: 'dude', frame: 4 } ],
-        frameRate: 20
+        key: 'idle-left',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 5, end: 8 }),
+        frameRate: 10,
+        repeat: -1
     });
 
     this.anims.create({
-        key: 'right',
-        frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+        key: 'walk-right',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 9, end: 16 }),
+        frameRate: 10,
+        repeat: -1
+    });
+    
+    this.anims.create({
+        key: 'walk-left',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 17, end: 24 }),
         frameRate: 10,
         repeat: -1
     });
@@ -141,19 +150,33 @@ function update ()
     {
         player.setVelocityX(-160);
 
-        player.anims.play('left', true);
+        player.anims.play('walk-left', true);
+        
+        player_direction = 'left';
     }
     else if (cursors.right.isDown)
     {
         player.setVelocityX(160);
 
-        player.anims.play('right', true);
+        player.anims.play('walk-right', true);
+        
+        player_direction = 'right';
     }
     else
     {
-        player.setVelocityX(0);
+        
+        if(player_direction === 'right')
+        {
+            player.setVelocityX(0);
 
-        player.anims.play('turn');
+            player.anims.play('idle-right');
+        }
+        else
+        {
+            player.setVelocityX(0);
+
+            player.anims.play('idle-left');
+        }
     }
 
     if (cursors.up.isDown && player.body.touching.down)
@@ -196,7 +219,7 @@ function hitBomb (player, bomb)
 
     player.setTint(0xff0000);
 
-    player.anims.play('turn');
+    player.anims.play('idle-right');
 
     gameOver = true;
 }

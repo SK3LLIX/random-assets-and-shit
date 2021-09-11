@@ -531,7 +531,7 @@ function update ()
         
         player.body.offset.x = 25;
     }
-    else if(!cursors.left.isDown  && !cursors.right.isDown  && player_anim === 'jump_right' || player_anim === 'jump-left')
+    else if(!cursors.left.isDown  && !cursors.right.isDown  && player_anim === 'jump_right' && player_anim != 'duck' || player_anim === 'jump-left' && player_anim != 'duck')
     {
         player.setVelocityX(0);
         

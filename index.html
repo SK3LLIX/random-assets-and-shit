@@ -41,6 +41,7 @@ var score = 0;
 var gameOver = false;
 var scoreText;
 var player_direction = 'right';
+var player_anim;
 
 var game = new Phaser.Game(config);
 
@@ -79,6 +80,14 @@ function create ()
     player.body.offset.y = 11;
     player.body.offset.x = 25;
     //  Our player animations, turning, walking left and walking right.
+    
+    this.anims.create({
+        key: 'error',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 0, end: 0 }),
+        frameRate: 10,
+        repeat: -1
+    });
+    
     this.anims.create({
         key: 'idle-right',
         frames: this.anims.generateFrameNumbers('aleck', { start: 1, end: 4 }),
@@ -154,6 +163,8 @@ function update ()
         player.anims.play('walk-left', true);
         
         player_direction = 'left';
+        
+        player_anim = 'walk';
     }
     else if (cursors.right.isDown)
     {
@@ -162,25 +173,35 @@ function update ()
         player.anims.play('walk-right', true);
         
         player_direction = 'right';
+        
+        player_anim = 'walk';
     }
     else
     {
         
-        if(player_direction === 'right')
+        if(player_direction === 'right' && player_anim != 'idle')
         {
             player.setVelocityX(0);
 
             player.anims.play('idle-right');
         
-            player_direction = 'right';
+            player_anim = 'idle';
         }
         else
         {
-            player.setVelocityX(0);
+            
+            if(player_direction === 'left' && player_anim != 'idle')
+            {
+                player.setVelocityX(0);
 
-            player.anims.play('idle-left');
-        
-            player_direction = 'left';
+                player.anims.play('idle-left');
+
+                player_anim = 'idle';
+            }
+            else
+            {
+                player.anims.play('error');
+            }
         }
     }
 

@@ -200,7 +200,13 @@ function update ()
             }
             else
             {
-                player.anims.play('error');
+                
+                if(player_direction != 'left' && player_direction != 'right')
+                {
+                
+                    player.anims.play('error');
+                
+                }
             }
         }
     }

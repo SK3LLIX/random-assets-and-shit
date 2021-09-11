@@ -62,7 +62,6 @@ function preload ()
 
 function create ()
 {
-    this.input.keyboard.on('keydown_B', this.keypressed, this);
     //  A simple background for our game
     this.add.image(400, 300, 'sky');
 
@@ -285,20 +284,6 @@ function update()
         player_anim_text.visible = false;
     }
 }
-keypressed(event){
-    if(event.keyCode === Phaser.Input.Keyboard.KeyCodes.B)
-    {
-        config.physics.arcade.debug = true;
-        player_anim_text.visible = true;
-    }
-    else if(!event.keyCode === Phaser.Input.Keyboard.KeyCodes.B)
-    {
-        config.physics.arcade.debug = false;
-        player_anim_text.visible = false;
-    }
-    
-}
-
 function collectStar (player, star)
 {
     star.disableBody(true, true);

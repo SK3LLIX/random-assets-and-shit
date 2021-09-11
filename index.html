@@ -230,7 +230,6 @@ function create ()
     });
     //  Input Events
     cursors = this.input.keyboard.createCursorKeys();
-    b_key = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
     //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
     stars = this.physics.add.group({
         key: 'star',
@@ -260,6 +259,8 @@ function create ()
     this.physics.add.overlap(player, stars, collectStar, null, this);
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
+    
+    b_key = game.input.keyboard.addKey(Phaser.KeyCode.B);
 }
 player_animation_finished = () => {
     player_anim_end = true;

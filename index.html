@@ -248,6 +248,8 @@ function update ()
         
         player_anim = 'jump';
         
+        player_direction = 'left';
+        
         player_anim_end = false;
     }
     else if(player_direction === 'right' && cursors.up.isDown && player.body.touching.down && player_anim != 'jump')
@@ -258,6 +260,8 @@ function update ()
 
         player_anim = 'jump';
         
+        player_direction = 'right';
+        
         player_anim_end = false;
     }
     else if(player_direction === 'left'  && player_anim != 'air-left' && !player.body.touching.down && player_anim_end === true)
@@ -266,6 +270,8 @@ function update ()
         
         player_anim = 'air-left';
         
+        player_direction = 'left';
+        
         player_anim_end = false;
     }
     else if(player_direction === 'right'  && player_anim != 'air-right' && !player.body.touching.down && player_anim_end === true)
@@ -273,6 +279,8 @@ function update ()
         player.anims.play('air-right');
 
         player_anim = 'air-right';
+        
+        player_direction = 'right';
         
         player_anim_end = false;
     }
@@ -284,6 +292,8 @@ function update ()
         
         player_anim = 'air-left';
         
+        player_direction = 'left';
+        
         player_anim_end = false;
     }
     else if(cursors.right.isDown  && !player.body.touching.down && player_anim_end === true)
@@ -293,6 +303,8 @@ function update ()
         player.anims.play('air-right');
 
         player_anim = 'air-right';
+        
+        player_direction = 'right';
         
         player_anim_end = false;
     }
@@ -304,6 +316,8 @@ function update ()
         
         player_anim = 'jump-left';
         
+        player_direction = 'left';
+        
         player_anim_end = false;
     }
     else if(cursors.right.isDown  && player_anim === 'jump')
@@ -313,6 +327,8 @@ function update ()
         player.anims.play('jump-right');
 
         player_anim = 'jump-right';
+        
+        player_direction = 'right';
         
         player_anim_end = false;
     }
@@ -324,6 +340,8 @@ function update ()
         
         player_anim = 'jump-left';
         
+        player_direction = 'left';
+        
         player_anim_end = false;
     }
     else if(cursors.right.isDown  && player_anim === 'jump-left')
@@ -333,6 +351,8 @@ function update ()
         player.anims.play('jump-right');
 
         player_anim = 'jump-right';
+        
+        player_direction = 'right';
         
         player_anim_end = false;
     }
@@ -344,6 +364,8 @@ function update ()
         
         player_anim = 'jump-left';
         
+        player_direction = 'left';
+        
         player_anim_end = false;
     }
     else if(cursors.right.isDown  && player_anim === 'jump')
@@ -353,6 +375,8 @@ function update ()
         player.anims.play('jump-right');
 
         player_anim = 'jump-right';
+        
+        player_direction = 'right';
         
         player_anim_end = false;
     }
@@ -368,7 +392,7 @@ function update ()
         
         player_anim_end = false;
     }
-    else if(cursors.left.isDown  && player_anim === 'air-right')
+    else if(cursors.left.isDown && player_anim === 'air-right')
     {
         player.setVelocityX(-160);
         
@@ -376,20 +400,24 @@ function update ()
         
         player_anim = 'air-left';
         
+        player_direction = 'left';
+        
         player_anim_end = false;
     }
-    else if(cursors.right.isDown  && player_anim === 'air-left')
+    else if(cursors.right.isDown && player_anim === 'air-left')
     {
         player.setVelocityX(160);
         
         player.anims.play('air-right');
 
         player_anim = 'air-right';
+        
+        player_direction = 'right';
         
         player_anim_end = false;
     }
     
-    else if(cursors.left.isDown  && player_anim === 'air-left')
+    else if(cursors.left.isDown && player_anim === 'air-left')
     {
         player.setVelocityX(-160);
         
@@ -397,15 +425,19 @@ function update ()
         
         player_anim = 'air-left';
         
+        player_direction = 'left';
+        
         player_anim_end = false;
     }
-    else if(cursors.right.isDown  && player_anim === 'air-right')
+    else if(cursors.right.isDown && player_anim === 'air-right')
     {
         player.setVelocityX(160);
         
         player.anims.play('air-right');
 
         player_anim = 'air-right';
+        
+        player_direction = 'right';
         
         player_anim_end = false;
     }

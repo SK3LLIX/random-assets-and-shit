@@ -237,16 +237,25 @@ function update ()
         
         player_anim = 'jump';
     }
-    else 
-    {    
-        if(player_direction === 'right' && cursors.up.isDown && player.body.touching.down)
-        {
-            player.setVelocityY(-330);
+    else if(player_direction === 'right' && cursors.up.isDown && player.body.touching.down)
+    {
+        player.setVelocityY(-330);
 
-            player.anims.play('jump-right');
+        player.anims.play('jump-right');
 
-            player_anim = 'jump';
-        }
+        player_anim = 'jump';
+    }
+    else if(player_direction === 'left' && player_anim === 'jump')
+    {
+        player.anims.play('jump-left');
+        
+        player_anim = 'jump';
+    }
+    else if(player_direction === 'right' && player_anim === 'jump')
+    {
+        player.anims.play('jump-right');
+
+        player_anim = 'jump';
     }
 }
 

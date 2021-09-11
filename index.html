@@ -63,7 +63,9 @@ function create ()
 {
     //  A simple background for our game
     this.add.image(400, 300, 'sky');
-
+    this.input.keyboard.on('keydown_B', this.yourFunction, this);
+    
+    
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
 
@@ -272,6 +274,14 @@ function update()
     }
     playercontroller();
 
+}
+    yourFunction(event) {
+    // Here you can see what's passed when Phaser triggers it.
+    console.log(arguments);
+    if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.B) {
+        
+        score += 10;
+    } 
 }
 function collectStar (player, star)
 {

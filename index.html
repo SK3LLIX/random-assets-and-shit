@@ -45,7 +45,6 @@ var player_anim;
 var player_anim_end = null;
 var player_anim_text;
 var debug_mode = false;
-var bKeyObj = scene.input.keyboard.addKey('B');  // Get key object
 var game = new Phaser.Game(config);
 
 function preload ()
@@ -261,6 +260,7 @@ function create ()
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
+var bKeyObj = scene.input.keyboard.addKey('B');  // Get key object
 
 player_animation_finished = () => {
     player_anim_end = true;

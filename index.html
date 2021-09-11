@@ -45,7 +45,7 @@ var player_anim;
 var player_anim_end = null;
 var player_anim_text;
 var debug_mode = false;
-
+var bKeyObj = scene.input.keyboard.addKey('B');  // Get key object
 var game = new Phaser.Game(config);
 
 function preload ()
@@ -230,7 +230,7 @@ function create ()
     });
     //  Input Events
     cursors = this.input.keyboard.createCursorKeys();
-
+    
     //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
     stars = this.physics.add.group({
         key: 'star',
@@ -273,9 +273,7 @@ function update()
         return;
     }
     playercontroller();
-}
-var bKeyObj = scene.input.keyboard.addKey('B');  // Get key object
-bKeyObj.on('down', function(event) { 
+    bKeyObj.on('down', function(event) { 
     config.physics.arcade.debug = true;
     player_anim_text.visible = true;
 });
@@ -283,6 +281,9 @@ bKeyObj.on('up', function(event) {
     config.physics.arcade.debug = false;
     player_anim_text.visible = false;
 });
+}
+
+
 function collectStar (player, star)
 {
     star.disableBody(true, true);

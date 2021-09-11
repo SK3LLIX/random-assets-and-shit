@@ -229,7 +229,7 @@ function update ()
         player.anims.play('error');
         
     }
-    else if(player_direction === 'left' && cursors.up.isDown && player.body.touching.down && player_anim != 'jump')
+    else if(player_direction === 'left' && cursors.up.isDown && player.body.touching.down)
     {
         player.setVelocityY(-330);
         
@@ -239,7 +239,7 @@ function update ()
     }
     else 
     {    
-        if(player_direction === 'right' && cursors.up.isDown && player.body.touching.down && player_anim != 'jump')
+        if(player_direction === 'right' && cursors.up.isDown && player.body.touching.down)
         {
             player.setVelocityY(-330);
 

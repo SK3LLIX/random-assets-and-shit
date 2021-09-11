@@ -260,7 +260,9 @@ function create ()
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
     
-    b_key = game.input.keyboard.addKey(Phaser.KeyCode.B);
+    this.input.keyboard.on('keydown-B', function () {
+        config.physics.arcade.debug = true
+    });
 }
 player_animation_finished = () => {
     player_anim_end = true;
@@ -273,9 +275,6 @@ function update()
         return;
     }
     playercontroller();
-    if (b_key.isDown) {
-        config.physics.arcade.debug = false;
-  }
 }
 function collectStar (player, star)
 {

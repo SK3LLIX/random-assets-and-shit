@@ -649,6 +649,8 @@ function update ()
     }
     else if (player_direction === 'right' && !cursors.left.isDown && !cursors.right.isDown && cursors.down.isDown && player_anim != 'duck' && player_anim != 'duck-loop')
     {   
+        player.setVelocityX(0);
+        
         player.anims.play('duck-right');
 
         player_anim = 'duck';
@@ -665,6 +667,8 @@ function update ()
     }
     else if (player_direction === 'left' && !cursors.left.isDown && !cursors.right.isDown && cursors.down.isDown && player_anim != 'duck' && player_anim != 'duck-loop')
     {   
+        player.setVelocityX(0);
+        
         player.anims.play('duck-left');
 
         player_anim = 'duck';
@@ -681,6 +685,8 @@ function update ()
     }
     else if (player_direction === 'right' && cursors.down.isDown && player_anim === 'duck' && player_anim_end === true)
     {   
+        player.setVelocityX(0);
+        
         player.anims.play('duck-loop-right');
 
         player_anim = 'duck-loop';
@@ -697,6 +703,8 @@ function update ()
     }
     else if (player_direction === 'left' && cursors.down.isDown && player_anim === 'duck' && player_anim_end === true)
     {   
+        player.setVelocityX(0);
+        
         player.anims.play('duck-loop-left');
 
         player_anim = 'duck-loop';

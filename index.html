@@ -50,11 +50,13 @@ var game = new Phaser.Game(config);
 function preload ()
 {
     this.load.image('sky', 'https://sk3llix.github.io/untitledgame/assets/sky.png');
+    this.load.image('grassland-tiles', 'https://sk3llix.github.io/untitledgame/assets/grassland.png');
     this.load.image('ground', 'https://sk3llix.github.io/untitledgame/assets/platform.png');
     this.load.image('star', 'https://sk3llix.github.io/untitledgame/assets/star.png');
     this.load.image('bomb', 'https://sk3llix.github.io/untitledgame/assets/bomb.png');
     this.load.spritesheet('aleck', 'https://sk3llix.github.io/untitledgame/assets/aleck-sheet-compressed.png', { frameWidth: 83, frameHeight: 83 });
     this.load.script('player-controller', 'https://sk3llix.github.io/untitledgame/assets/scripts/player-controller.js');
+    this.load.tilemapTiledJSON("testmap1", "https://sk3llix.github.io/untitledgame/assets/maps/testmap1.json");
 }
 
 function create ()
@@ -264,8 +266,6 @@ player_animation_finished = () => {
 }
 function update()
 {
-    this.cameras.main.setBounds(0, 0, this.displayWidth, this.displayHeight);
-    this.cameras.main.startFollow(this.player);
 
     if (gameOver)
     {

@@ -273,17 +273,16 @@ function update()
         return;
     }
     playercontroller();
-    if(cursor.b.isDown)
-    {
-        config.physics.arcade.debug = true;
-        player_anim_text.visible = true;
-    }
-    else if(!cursor.b.isDown)
-    {
-        config.physics.arcade.debug = false;
-        player_anim_text.visible = false;
-    }
 }
+var bKeyObj = scene.input.keyboard.addKey('B');  // Get key object
+bKeyObj.on('down', function(event) { 
+    config.physics.arcade.debug = true;
+    player_anim_text.visible = true;
+});
+bKeyObj.on('up', function(event) { 
+    config.physics.arcade.debug = false;
+    player_anim_text.visible = false;
+});
 function collectStar (player, star)
 {
     star.disableBody(true, true);

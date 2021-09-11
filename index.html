@@ -171,12 +171,16 @@ function update ()
             player.setVelocityX(0);
 
             player.anims.play('idle-right');
+        
+            player_direction = 'right';
         }
         else
         {
             player.setVelocityX(0);
 
             player.anims.play('idle-left');
+        
+            player_direction = 'left';
         }
     }
 

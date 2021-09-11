@@ -43,6 +43,7 @@ var scoreText;
 var player_direction = 'right';
 var player_anim;
 var player_anim_end = null;
+var player_anim_text;
 
 var game = new Phaser.Game(config);
 
@@ -163,6 +164,7 @@ function create ()
 
     //  The score
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+    player_anim_text = this.add.text(16, 64, 'animation: unknown', { fontSize: '32px', fill: '#000' });
 
     //  Collide the player and the stars with the platforms
     this.physics.add.collider(player, platforms);
@@ -186,6 +188,7 @@ function update ()
     {
         return;
     }
+    player_anim_text.setText('Animation: ' + player_anim);
     player.on('animationcomplete', player_animation_finished);
     
     if (cursors.left.isDown && player.body.touching.down)

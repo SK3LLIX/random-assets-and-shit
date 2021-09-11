@@ -647,7 +647,7 @@ function update ()
         
         player.body.offset.x = 25;
     }
-    else if (player_direction === 'right' && !cursors.left.isDown && !cursors.right.isDown && cursors.down.isDown && player_anim != 'duck' && !player_anim === 'duck-loop')
+    else if (player_direction === 'right' && !cursors.left.isDown && !cursors.right.isDown && cursors.down.isDown && player_anim != 'duck' && player_anim != 'duck-loop')
     {   
         player.anims.play('duck-right');
 
@@ -663,7 +663,7 @@ function update ()
         
         player.body.offset.x = 25;
     }
-    else if (player_direction === 'left' && !cursors.left.isDown && !cursors.right.isDown && cursors.down.isDown && player_anim != 'duck' && !player_anim === 'duck-loop')
+    else if (player_direction === 'left' && !cursors.left.isDown && !cursors.right.isDown && cursors.down.isDown && player_anim != 'duck' && player_anim != 'duck-loop')
     {   
         player.anims.play('duck-left');
 

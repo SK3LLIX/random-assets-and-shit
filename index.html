@@ -211,6 +211,20 @@ function create ()
         frames: this.anims.generateFrameNumbers('aleck', { start: 49, end: 51 }),
         frameRate: 60,
     });
+    
+    this.anims.create({
+        key: 'stomp-loop-right',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 47, end: 47 }),
+        frameRate: 60,
+        repeat: -1
+    });
+    
+    this.anims.create({
+        key: 'stomp-loop-left',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 51, end: 51 }),
+        frameRate: 60,
+        repeat: -1
+    });
     //  Input Events
     cursors = this.input.keyboard.createCursorKeys();
 

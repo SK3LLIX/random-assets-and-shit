@@ -185,6 +185,34 @@ function create ()
         frameRate: 10,
         repeat: -1
     });
+    
+    this.anims.create({
+        key: 'lunge-right',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 53, end: 55 }),
+        frameRate: 10,
+        repeat: -1
+    });
+    
+    this.anims.create({
+        key: 'lunge-left',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 56, end: 58 }),
+        frameRate: 10,
+        repeat: -1
+    });
+    
+    this.anims.create({
+        key: 'stomp-right',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 45, end: 48 }),
+        frameRate: 10,
+        repeat: -1
+    });
+    
+    this.anims.create({
+        key: 'stomp-left',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 49, end: 52 }),
+        frameRate: 10,
+        repeat: -1
+    });
     //  Input Events
     cursors = this.input.keyboard.createCursorKeys();
 

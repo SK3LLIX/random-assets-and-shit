@@ -44,6 +44,7 @@ var player_direction = 'right';
 var player_anim;
 var player_anim_end = null;
 var player_anim_text;
+var debug_mode = false;
 
 var game = new Phaser.Game(config);
 
@@ -272,6 +273,16 @@ function update()
         return;
     }
     playercontroller();
+    if(cursor.b.isDown)
+    {
+        config.physics.arcade.debug = true;
+        player_anim_text.visible = true;
+    }
+    else if(!cursor.b.isDown)
+    {
+        config.physics.arcade.debug = false;
+        player_anim_text.visible = false;
+    }
 }
 
 

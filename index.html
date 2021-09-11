@@ -316,6 +316,58 @@ function update ()
         
         player_anim_end = false;
     }
+    else if(cursors.left.isDown  && player_anim === 'jump-right')
+    {
+        player.setVelocityX(-160);
+        
+        player.anims.play('jump-left');
+        
+        player_anim = 'jump-left';
+        
+        player_anim_end = false;
+    }
+    else if(cursors.right.isDown  && player_anim === 'jump-left')
+    {
+        player.setVelocityX(160);
+        
+        player.anims.play('jump-right');
+
+        player_anim = 'jump-right';
+        
+        player_anim_end = false;
+    }
+    else if(cursors.left.isDown  && player_anim === 'jump')
+    {
+        player.setVelocityX(-160);
+        
+        player.anims.play('jump-left');
+        
+        player_anim = 'jump-left';
+        
+        player_anim_end = false;
+    }
+    else if(cursors.right.isDown  && player_anim === 'jump')
+    {
+        player.setVelocityX(160);
+        
+        player.anims.play('jump-right');
+
+        player_anim = 'jump-right';
+        
+        player_anim_end = false;
+    }
+    else if(!cursors.left.isDown  && !cursors.right.isDown  && player_anim === 'jump_right' || player_anim === 'jump-left')
+    {
+        player.setVelocityX(0);
+        
+        player_anim_end = false;
+    }
+    else if(!cursors.left.isDown  && !cursors.right.isDown  && player_anim === 'air-right' || player_anim === 'air-left')
+    {
+        player.setVelocityX(0);
+        
+        player_anim_end = false;
+    }
 }
 
 function collectStar (player, star)

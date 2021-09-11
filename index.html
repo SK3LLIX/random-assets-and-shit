@@ -222,7 +222,14 @@ function create ()
 player_animation_finished = () => {
     player_anim_end = true;
 }
-
+function update()
+{
+    if (gameOver)
+    {
+        return;
+    }
+    playercontroller();
+}
 
 
 function collectStar (player, star)

@@ -531,7 +531,7 @@ function update ()
         
         player.body.offset.x = 25;
     }
-    else if(!cursors.left.isDown  && !cursors.right.isDown  && player_anim === 'jump_right' && player_anim != 'duck' || player_anim === 'jump-left' && player_anim != 'duck')
+    else if(!cursors.left.isDown  && !cursors.right.isDown  && !cursors.down.isDown && player_anim === 'jump_right' || player_anim === 'jump-left')
     {
         player.setVelocityX(0);
         
@@ -645,7 +645,7 @@ function update ()
         
         player.body.setSize(36, 28)
         
-        player.body.offset.y = 11;
+        player.body.offset.y = 36;
         
         player.body.offset.x = 25;
     }
@@ -661,7 +661,7 @@ function update ()
         
         player.body.setSize(36, 28)
         
-        player.body.offset.y = 11;
+        player.body.offset.y = 36;
         
         player.body.offset.x = 25;
     }

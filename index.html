@@ -393,7 +393,7 @@ function update ()
         
         player.body.offset.x = 25;
     }
-    else if(cursors.left.isDown  && !player.body.touching.down)
+    else if(cursors.left.isDown  && player_anim != 'duck-left' && !player.body.touching.down)
     {
         player.setVelocityX(-160);
         
@@ -411,7 +411,7 @@ function update ()
         
         player.body.offset.x = 25;
     }
-    else if(cursors.right.isDown  && !player.body.touching.down)
+    else if(cursors.right.isDown  && player_anim != 'duck-left' && !player.body.touching.down)
     {
         player.setVelocityX(160);
         

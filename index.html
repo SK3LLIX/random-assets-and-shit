@@ -121,13 +121,13 @@ function create ()
     this.anims.create({
         key: 'jump-right',
         frames: this.anims.generateFrameNumbers('aleck', { start: 25, end: 27 }),
-        frameRate: 10,
+        frameRate: 60,
     });
     
     this.anims.create({
         key: 'jump-left',
         frames: this.anims.generateFrameNumbers('aleck', { start: 28, end: 30 }),
-        frameRate: 10,
+        frameRate: 60,
     });
 
     this.anims.create({
@@ -273,6 +273,46 @@ function update ()
         player.anims.play('air-right');
 
         player_anim = 'air-right';
+        
+        player_anim_end = false;
+    }
+    else if(cursors.left.isDown  && !player.body.touching.down && player_anim_end === true)
+    {
+        player.setVelocityX(-160);
+        
+        player.anims.play('air-left');
+        
+        player_anim = 'air-left';
+        
+        player_anim_end = false;
+    }
+    else if(cursors.right.isDown  && !player.body.touching.down && player_anim_end === true)
+    {
+        player.setVelocityX(160);
+        
+        player.anims.play('air-right');
+
+        player_anim = 'air-right';
+        
+        player_anim_end = false;
+    }
+    else if(cursors.left.isDown  && player_anim === 'jump')
+    {
+        player.setVelocityX(-160);
+        
+        player.anims.play('jump-left');
+        
+        player_anim = 'jump-left';
+        
+        player_anim_end = false;
+    }
+    else if(cursors.right.isDown  && player_anim === 'jump')
+    {
+        player.setVelocityX(160);
+        
+        player.anims.play('jump-right');
+
+        player_anim = 'jump-right';
         
         player_anim_end = false;
     }

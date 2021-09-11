@@ -264,6 +264,9 @@ player_animation_finished = () => {
 }
 function update()
 {
+    this.cameras.main.setBounds(0, 0, this.displayWidth, this.displayHeight);
+    this.cameras.main.startFollow(this.player);
+
     if (gameOver)
     {
         return;

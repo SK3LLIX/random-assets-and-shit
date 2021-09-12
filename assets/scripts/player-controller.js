@@ -509,15 +509,15 @@ function playercontroller ()
         
         player.body.offset.x = 25;
     }
-    else if (player_direction === 'right' && player.body.touching.down && cursors.right.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl')
+    else if (player_direction === 'right' && player.body.touching.down && cursors.left.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl')
     {   
         player.setVelocityX(160);
         
-        player.anims.play('crawl-right');
+        player.anims.play('crawl-left');
 
         player_anim = 'crawl';
         
-        player_direction = 'right';
+        player_direction = 'left';
         
         player_anim_end = false;
         
@@ -527,15 +527,15 @@ function playercontroller ()
         
         player.body.offset.x = 25;
     }
-    else if (player_direction === 'left' && player.body.touching.down && cursors.left.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl')
+    else if (player_direction === 'left' && player.body.touching.down && cursors.right.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl')
     {   
         player.setVelocityX(-160);
         
-        player.anims.play('crawl-left');
+        player.anims.play('crawl-right');
 
         player_anim = 'crawl';
         
-        player_direction = 'left';
+        player_direction = 'right';
         
         player_anim_end = false;
         

@@ -228,6 +228,18 @@ function create ()
         frameRate: 60,
         repeat: -1
     });
+    
+    this.anims.create({
+        key: 'fire-death-right',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 129, end: 138 }),
+        frameRate: 60,
+    });
+    
+    this.anims.create({
+        key: 'fire-death-left',
+        frames: this.anims.generateFrameNumbers('aleck', { start: 139, end: 148 }),
+        frameRate: 60,
+    });
     //  Input Events
     cursors = this.input.keyboard.createCursorKeys();
     //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
@@ -309,9 +321,15 @@ function hitBomb (player, bomb)
     this.physics.pause();
 
     player.setTint(0xff0000);
-
-    player.anims.play('idle-right');
-
+    
+    if(player_direction === 'right')
+    {
+        player.anims.play('fire-death-right');
+    }
+    else if(player_direction === 'left')
+    {
+        player.anims.play('fire-death-left');
+    }
     gameOver = true;
 }
 

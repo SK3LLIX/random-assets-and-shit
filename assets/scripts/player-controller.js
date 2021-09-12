@@ -511,7 +511,7 @@ function playercontroller ()
     }
     else if (player_direction === 'right' && player.body.touching.down && cursors.left.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl')
     {   
-        player.setVelocityX(160);
+        player.setVelocityX(-160);
         
         player.anims.play('crawl-left');
 
@@ -529,7 +529,7 @@ function playercontroller ()
     }
     else if (player_direction === 'left' && player.body.touching.down && cursors.right.isDown && cursors.down.isDown && player_anim === 'duck-loop' && player_anim != 'crawl')
     {   
-        player.setVelocityX(-160);
+        player.setVelocityX(160);
         
         player.anims.play('crawl-right');
 

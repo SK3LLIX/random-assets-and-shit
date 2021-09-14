@@ -256,7 +256,7 @@ function create ()
         child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
 
     });
-    game.camera.follow(player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+    game.camera.follow(player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 1);
     bombs = this.physics.add.group();
 
     //  The score

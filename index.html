@@ -384,8 +384,8 @@ function hitBomb (player, bomb)
 {
     this.physics.pause();
 
-    player.setTint(0xff0000);
     
+    this.cameras.main.shake(500);
     if(player_direction === 'right')
     {
         player.anims.play('fire-death-right');

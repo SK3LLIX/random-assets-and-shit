@@ -272,6 +272,8 @@ function create ()
     bombs = this.physics.add.group();
 
     //  The score
+    scoreText = this.add.text(16, 16, 'score: 0', { fontFamily: 'skellix-default-bordered', fontSize: '32px', fill: '#000' });
+    player_anim_text = this.add.text(16, 64, 'animation: unknown', { fontFamily: 'skellix-default-bordered', fontSize: '32px', fill: '#000' });
     
     //  Collide the player and the stars with the platforms
     this.physics.add.collider(player, platforms);
@@ -298,8 +300,10 @@ function update()
         return;
     }
     playercontroller();
-    scoreText = this.add.text(16, 16, 'score: 0', { fontFamily: 'skellix-default-bordered', fontSize: '32px', fill: '#000' });
-    player_anim_text = this.add.text(16, 64, 'animation: unknown', { fontFamily: 'skellix-default-bordered', fontSize: '32px', fill: '#000' });
+    scoreText.position.y = 16;
+    scoreText.position.x = 16;
+    player_anim_text.position.y = 64;
+    player_anim_text.position.x = 16;
 }
 function collectStar (player, star)
 {

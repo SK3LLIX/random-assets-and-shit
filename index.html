@@ -304,9 +304,6 @@ function update()
         player_posX_text.visible = true;
         player_posY_text.visible = true;
         player.body.debugShowBody = true;
-        stars.body.debugShowBody = true;
-        bombs.body.debugShowBody = true;
-        platforms.body.debugShowBody = true;
     }
     else
     {
@@ -314,9 +311,6 @@ function update()
         player_posX_text.visible = false;
         player_posY_text.visible = false;
         player.body.debugShowBody = false;
-        stars.body.debugShowBody = false;
-        bombs.body.debugShowBody = false;
-        platforms.body.debugShowBody = false;
     }
 }
 function collectStar (player, star)

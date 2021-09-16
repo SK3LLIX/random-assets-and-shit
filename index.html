@@ -66,12 +66,8 @@ function preload ()
     this.load.image('bomb', 'https://sk3llix.github.io/untitledgame/assets/bomb.png');
     this.load.spritesheet('aleck', 'https://sk3llix.github.io/untitledgame/assets/aleck-sheet-compressed.png', { frameWidth: 83, frameHeight: 83 });
     this.load.script('player-controller', 'https://sk3llix.github.io/untitledgame/assets/scripts/player-controller.js');
-    this.load.script('keyboard-declare', 'https://sk3llix.github.io/untitledgame/assets/scripts/keyboard-declare.js');
-    this.load.script('keyboard-define', 'https://sk3llix.github.io/untitledgame/assets/scripts/keyboard-define.js');
     this.load.tilemapTiledJSON("testmap1", "https://sk3llix.github.io/untitledgame/assets/maps/testmap1.json");
 }
-
-keyboard_declare();
 
 function create ()
 {
@@ -79,7 +75,6 @@ function create ()
     this.add.image(400, 300, 'sky');
     this.cameras.main.setBounds(0, 0, 1920 * 2, 1080 * 2);
     this.physics.world.setBounds(0, 0, 1920 * 2, 1080 * 2);
-    keyboard_define();
     
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
@@ -292,10 +287,6 @@ function create ()
     this.physics.add.overlap(player, stars, collectStar, null, this);
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
-    
-    this.input.keyboard.on('keydown-B', function () {
-        score += 10;
-    });
 }
 player_animation_finished = () => {
     player_anim_end = true;

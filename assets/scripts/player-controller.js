@@ -2,8 +2,8 @@
 function playercontroller ()
 {
     player_anim_text.setText('Animation: ' + player_anim);
-    player_posX_text.setText('x: ' + player_x);
-    player_posY_text.setText('y: ' + player_y);
+    player_posX_text.setText('x: ' + player.body.position.x);
+    player_posY_text.setText('y: ' + player.body.position.y);
     
     player.on('animationcomplete', player_animation_finished);
     

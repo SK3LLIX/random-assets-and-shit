@@ -277,7 +277,6 @@ function create ()
     player_anim_text = this.add.text(16, 64, 'animation: unknown', { fontFamily: 'skellix-default-bordered', fontSize: '32px', fill: '#000' });
     player_posX_text = this.add.text(16, 112, 'x: unknown', { fontFamily: 'skellix-default-bordered', fontSize: '32px', fill: '#000' });
     player_posY_text = this.add.text(16, 160, 'y: unknown', { fontFamily: 'skellix-default-bordered', fontSize: '32px', fill: '#000' });
-    key_test_text = this.add.text(16, 208, 'y: unknown', { fontFamily: 'skellix-default-bordered', fontSize: '32px', fill: '#000' });
     
     //  Collide the player and the stars with the platforms
     this.physics.add.collider(player, platforms);
@@ -299,7 +298,19 @@ function update()
     {
         return;
     }
-    key_test_text.setText('isDown?: ' + keys.P.isDown);
+    playercontroller();
+    if(keys.B.isDown === true){
+        player_anim_text.visible = true;
+        player_posX_text.visible = true;
+        player_posY_text.visible = true;
+    }
+    else
+    {
+        player_anim_text.visible = false;
+        player_posX_text.visible = false;
+        player_posY_text.visible = false;
+        
+    }
 }
 function collectStar (player, star)
 {

@@ -301,7 +301,7 @@ function create ()
 
         //  Give each star a slightly different bounce
         child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-
+        child.anims.play('gold-spin', true);
     });
 
     bombs = this.physics.add.group();
@@ -366,7 +366,7 @@ function collectCoin (player, coin)
         coins.children.iterate(function (child) {
 
             child.enableBody(true, child.x, 0, true, true);
-            
+            child.anims.play('gold-spin', true);
         });
 
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);

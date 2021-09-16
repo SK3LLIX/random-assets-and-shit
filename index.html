@@ -278,6 +278,11 @@ function create ()
     player_posX_text = this.add.text(16, 112, 'x: unknown', { fontFamily: 'skellix-default-bordered', fontSize: '32px', fill: '#000' });
     player_posY_text = this.add.text(16, 160, 'y: unknown', { fontFamily: 'skellix-default-bordered', fontSize: '32px', fill: '#000' });
     
+    scoreText.setScrollFactor(0);
+    player_anim_text.setScrollFactor(0);
+    player_posY_text.setScrollFactor(0);
+    player_posX_text.setScrollFactor(0);
+    
     //  Collide the player and the stars with the platforms
     this.physics.add.collider(player, platforms);
     this.physics.add.collider(stars, platforms);

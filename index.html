@@ -39,7 +39,7 @@ var config = {
         update: update
     }
 };
-var b_key;
+var keys;
 var player;
 var stars;
 var bombs;
@@ -285,7 +285,7 @@ function create ()
 
     //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
     this.physics.add.overlap(player, stars, collectStar, null, this);
-
+    keys = this.input.keyboard.addKeys('A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z');
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
 player_animation_finished = () => {
@@ -303,6 +303,9 @@ function update()
     scoreText.x = 16;
     player_anim_text.y = 64;
     player_anim_text.x = 16;
+    if(keys.B.isDown){
+        score += 10;
+    }
 }
 function collectStar (player, star)
 {

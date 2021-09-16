@@ -71,7 +71,9 @@ function create ()
 {
     //  A simple background for our game
     this.add.image(400, 300, 'sky');
-    this.cameras.main.setSize(400, 300);
+    this.cameras.main.setBounds(0, 0, 1920 * 2, 1080 * 2);
+    this.physics.world.setBounds(0, 0, 1920 * 2, 1080 * 2);
+    
     
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
@@ -89,13 +91,14 @@ function create ()
 
     // The player and its settings
     player = this.physics.add.sprite(100, 450, 'aleck');
-    player.body.setSize(36, 56)
-    this.cameras.main.startFollow(player);
+    player.body.setSize(36, 56);
+    
     //  Player physics properties. Give the little guy a slight bounce.
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
     player.body.offset.y = 11;
     player.body.offset.x = 25;
+    this.cameras.main.startFollow(player, true, 0.05, 0.05);
     //  Our player animations, turning, walking left and walking right.
     
     this.anims.create({

@@ -85,8 +85,8 @@ function create ()
     
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
-    platforms45 = this.physics.add.staticGroup();
-    platformsneg45 = this.physics.add.staticGroup();
+    platforms45 = this.physics.add.staticGroup(setRotation:{ value: 45});
+    platformsneg45 = this.physics.add.staticGroup(setRotation:{ value: -45});
     //  Here we create the ground.
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
     platforms.create(400, 568, 'ground').setScale(2).refreshBody();
@@ -103,8 +103,6 @@ function create ()
     platformsneg45.create(750, 220, 'ground');
     platformsneg45.create(750, 600, 'ground');
     
-    platforms45.rotate(45);
-    platformsneg45.rotate(-45);
     
     // The player and its settings
     player = this.physics.add.sprite(100, 450, 'aleck');

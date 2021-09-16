@@ -383,9 +383,7 @@ function collectCoin (player, coin)
 function hitBomb (player, bomb)
 {
     this.physics.pause();
-
-    
-    this.cameras.main.shake(50);
+    this.cameras.main.shake(250);
     if(player_direction === 'right')
     {
         player.anims.play('fire-death-right');

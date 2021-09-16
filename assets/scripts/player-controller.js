@@ -2,6 +2,7 @@
 function playercontroller ()
 {
     player_anim_text.setText('Animation: ' + player_anim);
+    player_pos_text.setText('x: ' + player.x + 'y: ' + player.y);
     player.on('animationcomplete', player_animation_finished);
     
     if (cursors.left.isDown && !cursors.up.isDown && player.body.touching.down && !cursors.down.isDown)

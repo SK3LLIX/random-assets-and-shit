@@ -45,7 +45,6 @@ var coins;
 var bombs;
 var platforms;
 var cursors;
-var coin_anim_locker = 0;
 var score = 0;
 var gameOver = false;
 var scoreText;
@@ -296,6 +295,8 @@ function create ()
         repeat: 11,
         setXY: { x: 12, y: 0, stepX: 70 }
     });
+    
+        
     coins.children.iterate(function (child) {
 
         //  Give each star a slightly different bounce
@@ -350,11 +351,6 @@ function update()
         player_posY_text.visible = false;
         player.body.debugShowBody = false;
     }
-    if(coin_anim_locker === 0)
-    {
-        coins.anims.play('gold-spin', true);
-        coin_anim_locker = 1;
-    }
 }
 function collectCoin (player, coin)
 {
@@ -370,7 +366,7 @@ function collectCoin (player, coin)
         coins.children.iterate(function (child) {
 
             child.enableBody(true, child.x, 0, true, true);
-            coin_anim_locker = 0;
+            coins.anim.play('gold-spin', true);
         });
 
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);

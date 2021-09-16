@@ -13,6 +13,8 @@ function playercontroller ()
 
         player.anims.play('walk-left', true);
         
+        coins.anims.play('gold-spin', true);
+        
         player_direction = 'left';
         
         player_anim = 'walk';

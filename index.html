@@ -61,7 +61,6 @@ var game = new Phaser.Game(config);
 function preload ()
 {
     this.load.image('sky', 'https://sk3llix.github.io/untitledgame/assets/images/sky.png');
-    this.load.image('grassland-tiles', 'https://sk3llix.github.io/untitledgame/assets/images/grassland-new.png');
     this.load.image('ground', 'https://sk3llix.github.io/untitledgame/assets/images/platform.png');
     this.load.image('star', 'https://sk3llix.github.io/untitledgame/assets/images/star.png');
     this.load.image('bomb', 'https://sk3llix.github.io/untitledgame/assets/images/bomb.png');
@@ -70,6 +69,7 @@ function preload ()
     this.load.spritesheet('silver-coin', 'https://sk3llix.github.io/untitledgame/assets/images/silver-coin.png', { frameWidth: 41, frameHeight: 41 });
     this.load.spritesheet('bronze-coin', 'https://sk3llix.github.io/untitledgame/assets/images/bronze-coin.png', { frameWidth: 41, frameHeight: 41 });
     this.load.spritesheet('ghost-coin', 'https://sk3llix.github.io/untitledgame/assets/images/ghost-coin.png', { frameWidth: 41, frameHeight: 41 });
+    this.load.spritesheet('grasslands-tiles', 'https://sk3llix.github.io/untitledgame/assets/images/grassland-new.png', { frameWidth: 83, frameHeight: 83 });
     this.load.script('player-controller', 'https://sk3llix.github.io/untitledgame/assets/scripts/player-controller.js');
     this.load.tilemapTiledJSON("testmap1", "https://sk3llix.github.io/untitledgame/assets/maps/testmap1.json");
 }

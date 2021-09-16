@@ -41,7 +41,7 @@ var config = {
 };
 var keys;
 var player;
-var stars;
+var coins;
 var bombs;
 var platforms;
 var cursors;
@@ -65,6 +65,10 @@ function preload ()
     this.load.image('star', 'https://sk3llix.github.io/untitledgame/assets/images/star.png');
     this.load.image('bomb', 'https://sk3llix.github.io/untitledgame/assets/images/bomb.png');
     this.load.spritesheet('aleck', 'https://sk3llix.github.io/untitledgame/assets/images/aleck-sheet-compressed.png', { frameWidth: 83, frameHeight: 83 });
+    this.load.spritesheet('gold-coin', 'https://sk3llix.github.io/untitledgame/assets/images/gold-coin.png', { frameWidth: 41, frameHeight: 41 });
+    this.load.spritesheet('silver-coin', 'https://sk3llix.github.io/untitledgame/assets/images/silver-coin.png', { frameWidth: 41, frameHeight: 41 });
+    this.load.spritesheet('bronze-coin', 'https://sk3llix.github.io/untitledgame/assets/images/bronze-coin.png', { frameWidth: 41, frameHeight: 41 });
+    this.load.spritesheet('ghost-coin', 'https://sk3llix.github.io/untitledgame/assets/images/ghost-coin.png', { frameWidth: 41, frameHeight: 41 });
     this.load.script('player-controller', 'https://sk3llix.github.io/untitledgame/assets/scripts/player-controller.js');
     this.load.tilemapTiledJSON("testmap1", "https://sk3llix.github.io/untitledgame/assets/maps/testmap1.json");
 }
@@ -101,6 +105,34 @@ function create ()
     player.body.offset.x = 25;
     this.cameras.main.startFollow(player, true, 0.05, 0.05);
     //  Our player animations, turning, walking left and walking right.
+    
+    this.anims.create({
+        key: 'gold-spin',
+        frames: this.anims.generateFrameNumbers('gold-coin', { start: 0, end: 7 }),
+        frameRate: 10,
+        repeat: -1
+    });
+    
+    this.anims.create({
+        key: 'silver-spin',
+        frames: this.anims.generateFrameNumbers('silver-coin', { start: 0, end: 7 }),
+        frameRate: 10,
+        repeat: -1
+    });
+    
+    this.anims.create({
+        key: 'bronze-spin',
+        frames: this.anims.generateFrameNumbers('bronze-coin', { start: 0, end: 7 }),
+        frameRate: 10,
+        repeat: -1
+    });
+    
+    this.anims.create({
+        key: 'ghost-spin',
+        frames: this.anims.generateFrameNumbers('ghost-coin', { start: 0, end: 7 }),
+        frameRate: 10,
+        repeat: -1
+    });
     
     this.anims.create({
         key: 'error',
@@ -257,13 +289,13 @@ function create ()
     //  Input Events
     cursors = this.input.keyboard.createCursorKeys();
     //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
-    stars = this.physics.add.group({
-        key: 'star',
+    coins = this.physics.add.group({
+        key: 'gold-coin',
         repeat: 11,
         setXY: { x: 12, y: 0, stepX: 70 }
     });
-
-    stars.children.iterate(function (child) {
+    coins.anims.play('gold-spin', true);
+    coins.children.iterate(function (child) {
 
         //  Give each star a slightly different bounce
         child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
@@ -285,11 +317,11 @@ function create ()
     
     //  Collide the player and the stars with the platforms
     this.physics.add.collider(player, platforms);
-    this.physics.add.collider(stars, platforms);
+    this.physics.add.collider(coins, platforms);
     this.physics.add.collider(bombs, platforms);
 
     //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
-    this.physics.add.overlap(player, stars, collectStar, null, this);
+    this.physics.add.overlap(player, coins, collectCoin, null, this);
     keys = this.input.keyboard.addKeys('A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z');
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
@@ -318,18 +350,18 @@ function update()
         player.body.debugShowBody = false;
     }
 }
-function collectStar (player, star)
+function collectCoin (player, coin)
 {
-    star.disableBody(true, true);
+    coin.disableBody(true, true);
 
     //  Add and update the score
     score += 10;
     scoreText.setText('Score: ' + score);
 
-    if (stars.countActive(true) === 0)
+    if (coins.countActive(true) === 0)
     {
         //  A new batch of stars to collect
-        stars.children.iterate(function (child) {
+        coins.children.iterate(function (child) {
 
             child.enableBody(true, child.x, 0, true, true);
 
